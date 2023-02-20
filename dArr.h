@@ -1,5 +1,5 @@
 #pragma once
-#include<iostream>
+#include"Includes.h"
 
 template<typename T>
 class dArr
@@ -81,6 +81,6 @@ template<typename T>
 void dArr<T>::print()
 {
 	for (int i = 0; i < this->numOfEl; i++)
-		std::cout << *this->arr[i] << ' ';
-	std::cout << '\n';
+		cout << *this->arr[i] << ' ';
+	cout << '\n';
 }
