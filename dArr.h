@@ -22,8 +22,7 @@ public:
 };
 
 template<typename T>
-dArr<T>::dArr()
-{
+dArr<T>::dArr() {
 	this->cap = 3;
 	this->numOfEl = 0;
 	this->arr = new T * [this->cap];
@@ -31,16 +30,14 @@ dArr<T>::dArr()
 }
 
 template<typename T>
-dArr<T>::~dArr()
-{
+dArr<T>::~dArr() {
 	for (int i = 0; i < this->cap; i++)
 		delete this->arr[i];
 	delete[] this->arr;
 }
 
 template<typename T>
-T& dArr<T>::operator[](int index)
-{
+T& dArr<T>::operator[](int index) {
 	if (index < 0 || index >= this->nOfEl)
 		throw "Bad index";
 
@@ -48,15 +45,13 @@ T& dArr<T>::operator[](int index)
 }
 
 template<typename T>
-void dArr<T>::initialize()
-{
+void dArr<T>::initialize() {
 	for (int i = this->numOfEl; i < this->cap; i++)
 		this->arr[i] = nullptr;
 }
 
 template<typename T>
-void dArr<T>::expend()
-{
+void dArr<T>::expend() {
 	this->cap *= 2;
 
 	T** temp = new T * [this->cap];
@@ -69,8 +64,7 @@ void dArr<T>::expend()
 }
 
 template<typename T>
-void dArr<T>::addEl(T el)
-{
+void dArr<T>::addEl(T el) {
 	if (this->numOfEl >= this->cap)
 		expend();
 
@@ -78,8 +72,7 @@ void dArr<T>::addEl(T el)
 }
 
 template<typename T>
-void dArr<T>::print()
-{
+void dArr<T>::print() {
 	for (int i = 0; i < this->numOfEl; i++)
 		cout << *this->arr[i] << ' ';
 	cout << '\n';
