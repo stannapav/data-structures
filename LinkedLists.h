@@ -24,7 +24,7 @@ public:
 	const NodeSingle<T>& getAt(int index);
 	inline int getSize() { return this->size; }
 	void changeData(int index, T changeData);
-	
+
 };
 
 template<typename T>
@@ -53,13 +53,13 @@ public:
 };
 
 template<typename T>
-ListSingle<T>::ListSingle(){
+ListSingle<T>::ListSingle() {
 	this->head = NULL;
 	this->size = 0;
 }
 
 template<typename T>
-void ListSingle<T>::print(){
+void ListSingle<T>::print() {
 	NodeSingle<T>* last = this->head;
 	while (last != NULL) {
 		cout << last->data << ' ';
@@ -69,7 +69,7 @@ void ListSingle<T>::print(){
 }
 
 template<typename T>
-void ListSingle<T>::addFront(T data){
+void ListSingle<T>::addFront(T data) {
 	if (this->size == 0) {
 		this->head = new NodeSingle<T>(data, NULL);
 		this->size++;
@@ -83,7 +83,7 @@ void ListSingle<T>::addFront(T data){
 }
 
 template<typename T>
-void ListSingle<T>::addBack(T data){
+void ListSingle<T>::addBack(T data) {
 	if (this->size == 0) {
 		this->head = new NodeSingle<T>(data, NULL);
 		this->size++;
@@ -101,7 +101,7 @@ void ListSingle<T>::addBack(T data){
 }
 
 template<typename T>
-void ListSingle<T>::addAtPosition(int index, T data){
+void ListSingle<T>::addAtPosition(int index, T data) {
 	if (this->size <= index)
 		throw("Bad index");
 
@@ -117,7 +117,7 @@ void ListSingle<T>::addAtPosition(int index, T data){
 }
 
 template<typename T>
-void ListSingle<T>::delFront(){
+void ListSingle<T>::delFront() {
 	if (this->head != NULL) {
 		NodeSingle<T>* temp = this->head->next;
 
@@ -128,7 +128,7 @@ void ListSingle<T>::delFront(){
 }
 
 template<typename T>
-void ListSingle<T>::delBack(){
+void ListSingle<T>::delBack() {
 	if (this->head == NULL)
 		return;
 
@@ -142,7 +142,7 @@ void ListSingle<T>::delBack(){
 }
 
 template<typename T>
-void ListSingle<T>::delAll(){
+void ListSingle<T>::delAll() {
 	if (this->head == NULL)
 		return;
 
@@ -156,7 +156,7 @@ void ListSingle<T>::delAll(){
 }
 
 template<typename T>
-const NodeSingle<T>& ListSingle<T>::getAt(int index){
+const NodeSingle<T>& ListSingle<T>::getAt(int index) {
 	if (this->size <= index)
 		throw("Bad index");
 
@@ -187,24 +187,24 @@ void ListSingle<T>::changeData(int index, T changeData) {
 
 
 template<typename T>
-ListDouble<T>::ListDouble(){
+ListDouble<T>::ListDouble() {
 	this->head = NULL;
 	this->size = 0;
 }
 
 template<typename T>
-void ListDouble<T>::print(){
+void ListDouble<T>::print() {
 	NodeDouble<T>* last = this->head;
 	while (last != NULL) {
-			cout << last->data << ' ';
-			last = last->next;
+		cout << last->data << ' ';
+		last = last->next;
 	}
 	cout << '\n';
 
 }
 
 template<typename T>
-void ListDouble<T>::printRevers(){
+void ListDouble<T>::printRevers() {
 	NodeDouble<T>* last = this->head;
 	while (last->next != NULL)
 		last = last->next;
@@ -217,7 +217,7 @@ void ListDouble<T>::printRevers(){
 }
 
 template<typename T>
-void ListDouble<T>::addFront(T data){
+void ListDouble<T>::addFront(T data) {
 	if (this->size == 0) {
 		this->head = new NodeDouble<T>(data, NULL, NULL);
 		this->size++;
@@ -232,7 +232,7 @@ void ListDouble<T>::addFront(T data){
 }
 
 template<typename T>
-void ListDouble<T>::addBack(T data){
+void ListDouble<T>::addBack(T data) {
 	if (this->size == 0) {
 		this->head = new NodeDouble<T>(data, NULL, NULL);
 		this->size++;
@@ -250,7 +250,7 @@ void ListDouble<T>::addBack(T data){
 }
 
 template<typename T>
-void ListDouble<T>::addAtPosition(int index, T data){
+void ListDouble<T>::addAtPosition(int index, T data) {
 	if (this->size <= index)
 		throw("Bad index");
 
@@ -271,7 +271,7 @@ void ListDouble<T>::addAtPosition(int index, T data){
 }
 
 template<typename T>
-void ListDouble<T>::delFront(){
+void ListDouble<T>::delFront() {
 	if (this->head != NULL) {
 		NodeDouble<T>* temp = this->head->next;
 
@@ -283,7 +283,7 @@ void ListDouble<T>::delFront(){
 }
 
 template<typename T>
-void ListDouble<T>::delBack(){
+void ListDouble<T>::delBack() {
 	if (this->head == NULL)
 		return;
 
@@ -297,7 +297,7 @@ void ListDouble<T>::delBack(){
 }
 
 template<typename T>
-void ListDouble<T>::delAll(){
+void ListDouble<T>::delAll() {
 	if (this->head == NULL)
 		return;
 
@@ -311,7 +311,7 @@ void ListDouble<T>::delAll(){
 }
 
 template<typename T>
-void ListDouble<T>::changeData(int index, T changeData){
+void ListDouble<T>::changeData(int index, T changeData) {
 	if (this->size <= index) {
 		cout << "bad index";
 		return;
@@ -326,7 +326,7 @@ void ListDouble<T>::changeData(int index, T changeData){
 }
 
 template<typename T>
-const NodeDouble<T>& ListDouble<T>::getAt(int index){
+const NodeDouble<T>& ListDouble<T>::getAt(int index) {
 	if (this->size <= index)
 		throw("Bad index");
 
