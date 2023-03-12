@@ -10,6 +10,7 @@ private:
 
 public:
 	ListSingle();
+	~ListSingle();
 
 	void print();
 
@@ -35,6 +36,7 @@ private:
 
 public:
 	ListDouble();
+	~ListDouble();
 
 	void print();
 	void printRevers();
@@ -56,6 +58,11 @@ template<typename T>
 ListSingle<T>::ListSingle() {
 	this->head = NULL;
 	this->size = 0;
+}
+
+template<typename T>
+ListSingle<T>::~ListSingle(){
+	delAll();
 }
 
 template<typename T>
@@ -102,8 +109,8 @@ void ListSingle<T>::addBack(T data) {
 
 template<typename T>
 void ListSingle<T>::addAtPosition(int index, T data) {
-	if (this->size <= index)
-		throw("Bad index");
+	if (this->size >= index || this->size <= index)
+		return;
 
 	NodeSingle<T>* last = this->head;
 	for (int i = 0; last->next->next != NULL && i < index; i++)
@@ -190,6 +197,11 @@ template<typename T>
 ListDouble<T>::ListDouble() {
 	this->head = NULL;
 	this->size = 0;
+}
+
+template<typename T>
+ListDouble<T>::~ListDouble(){
+	delAll();
 }
 
 template<typename T>

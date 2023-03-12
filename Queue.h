@@ -10,6 +10,7 @@ private:
 
 public:
 	Queue();
+	~Queue();
 	void pop();
 	void push(T data);
 	void clear();
@@ -24,6 +25,11 @@ template<typename T>
 Queue<T>::Queue() {
 	this->head = NULL;
 	this->size = 0;
+}
+
+template<typename T>
+Queue<T>::~Queue(){
+	clear();
 }
 
 template<typename T>

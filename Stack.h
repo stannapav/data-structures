@@ -10,6 +10,7 @@ private:
 
 public:
 	Stack();
+	~Stack();
 	void push(T data);
 	void pop();
 	void clear();
@@ -25,6 +26,11 @@ template<typename T>
 Stack<T>::Stack() {
 	this->top = NULL;
 	this->size = 0;
+}
+
+template<typename T>
+Stack<T>::~Stack(){
+	clear();
 }
 
 template<typename T>
