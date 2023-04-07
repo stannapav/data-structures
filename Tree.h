@@ -16,13 +16,15 @@ struct Node{
 class Tree{
 private:
 	Node* root;
+	int size;
 
 	void del(Node*& node);
 public:
 	Tree();
 	~Tree();
 	void add(int data, Node* parent = NULL);
-	void print(Node* node = NULL, bool a = false);
+	void print(Node* node = NULL, long n = 0, bool notRoot = false);
 	void delTree();
+	inline int getSize() { return this->size; }
 	
 };

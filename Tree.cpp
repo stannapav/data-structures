@@ -1,6 +1,7 @@
 #include "Tree.h"
 
 Tree::Tree(){
+    this->size = 0;
 	this->root = NULL;
 }
 
@@ -11,6 +12,7 @@ Tree::~Tree(){
 void Tree::add(int data, Node* parent){
 	if (this->root == NULL) {
 		this->root = new Node(data);
+        this->size++;
 		return;
 	}
 
@@ -20,6 +22,7 @@ void Tree::add(int data, Node* parent){
     if (parent->data > data){
         if (parent->left == NULL){
             parent->left = new Node(data);
+            this->size++;
             return;
         }
         else add(data, parent->left);
@@ -28,21 +31,26 @@ void Tree::add(int data, Node* parent){
     if (parent->data < data) {
         if (parent->right == NULL) {
             parent->right = new Node(data);
+            this->size++;
             return;
         }
         else add(data, parent->right);
     }
 }
 
-void Tree::print(Node* node, bool a){
-    if (a == false)
-         node = this->root;
+void Tree::print(Node* node, long n, bool notRoot) {
+    if (notRoot == false) {
+        node = this->root;
+        n = this->size;
+    }
 
-    if (node == NULL) return;
-
-    cout << node->data << ' ';
-    print(node->left, true);
-    print(node->right, true);
+    if (node != NULL) {
+        print(node->right, n + 5, true);
+        for (long i = 0; i < n; i++)
+            cout << ' ';
+        cout << node->data << '\n';
+        print(node->left, n + 5, true);
+    }
 }
 
 void Tree::del(Node*& node){
